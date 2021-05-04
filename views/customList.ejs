@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Yo yo</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="box" id="heading">
+            <h1><%= cusListName %></h1>
+        </div>
+        <div class="box">
+            <% for(let i=0; i<cusListItems.length ;i++){ %>
+                <form action="/<%=cusListName %>/delete" method="post">
+                    <div class="items">
+                        <input type="checkbox" name='checkbox' value = "<%= cusListItems[i].id %>" onchange="this.form.submit()">
+                        <p><%= cusListItems[i].name %></p>
+                    </div>
+                </form>
+            <% } %>
+            <form class="item" action="/<%=cusListName %>" method="post">
+                <input type="text" name="item" placeholder="New Item" autocomplete="off" required>
+                <button type="submit" name="button">+</button>
+            </form>
+        </div>
+
+    </body>
+</html>
